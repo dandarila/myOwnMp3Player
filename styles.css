@@ -4,18 +4,18 @@ body{
 
 #player-wrapper {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   border-style: solid;
   border-color: red;
 }
 #play-btn {
-  position: relative;
+  position: absolute;
   background-image: url('images/play.png');
   background-size: cover;
   width: 50px;
   height: 50px;
-  margin: 2rem 0 2rem 2rem;
+  margin: 2rem 0 2rem 3rem;
 }
 
 #pause-btn {
@@ -25,6 +25,14 @@ body{
   height: 50px;
   margin: 2rem 0 2rem 2rem;
   
+}
+#mute {
+  position: absolute;
+  background-image: url('images/mute.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin: 2rem 0rem 2rem 0rem;
 }
 
 div #songTitle {
@@ -48,4 +56,9 @@ div #image {
   height: 200px;
   border-style: solid;
   border-color: black;
+}
+label {
+  width: 50px;
+  height: 50px;
+
 }
