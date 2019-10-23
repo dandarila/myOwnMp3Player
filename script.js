@@ -1,55 +1,57 @@
-let buttons = {
+let domVariables = {
   play: document.getElementById('play-btn'), 
   pause: document.getElementById('pause-btn'), 
   audio: document.getElementById('audio'), 
+  title: document.getElementById('songTitle'),
   duration: document.getElementById('songDuration')
-}
+};
 
- buttons.pause.style.display = "none"
- buttons.audio.style.display = "none"
 
-buttons.play.addEventListener('click', function(){
-  buttons.play.style.display="none";
-  buttons.pause.style.display ="block";
+// change with z-index
+ domVariables.pause.style.display = "none"
+ domVariables.audio.style.display = "none"
+
+domVariables.play.addEventListener('click', function(){
+  domVariables.play.style.display="none";
+  domVariables.pause.style.display ="block";
   playMusic();
 });
 
-buttons.pause.addEventListener('click', function(){
-  buttons.play.style.display="block";
-  buttons.pause.style.display ="none";
+domVariables.pause.addEventListener('click', function(){
+  domVariables.play.style.display="block";
+  domVariables.pause.style.display ="none";
   pauseMusic();
-  // length = audio.duration;
-  
+ });
 
-});
 
-// let controlMusic = function()
+let playlist = ['media/alligator3.mp3', 'media/applause.mp3', 'media/arc1.mp3', 'media/baboon_monkey.mp3', 'media/coyote1.mp3', 'media/falling.mp3', 'media/lioncub2.mp3', 'media/powerlines.mp3', 'media/sample.mp3', 'media/suicide.mp3', 'media/wolf8.mp3', 'media/woscream4.mp3', 'media/LeftwithaGun.mp3', 'media/Lilly.mp3'];
+let currentPosition = 0;
+
 
 let playMusic = function playmusic() { 
+  domVariables.audio.setAttribute('src', `${playlist[currentPosition]}`);
+  let songTitle = `${playlist[currentPosition]}`
+  domVariables.title.innerHTML = songTitle.slice(6, -4);
   audio.play();
-  buttons.duration.innerHTML = `${audio.duration}`
+ 
 };
 
-let pauseMusic = function pausemusic() {
+
+let pauseMusic = function() {
   audio.pause();
 }
 
+//play next song on end 
+audio.onended = function() {
+  console.log("The audio has ended");
+  currentPosition = currentPosition + 1
+  domVariables.audio.setAttribute('src', `${playlist[currentPosition]}`);
+  domVariables.title.innerHTML = (`${playlist[currentPosition]}`).slice (6, -4);
+  audio.play()
+ }
 
-  audio.onended = function() {
-  alert("The audio has ended");
-  buttons.audio.setAttribute('src', 'LeftwithaGun.mp3');
-  playMusic()
 
 
-//   audio.onended = function() {
-//     buttons.audio.setAttribute('src', 'LeftwithaGun.mp3');
-//     playMusic()
-//  }
-}
-// function initProgressBar() {
-//   var player = document.getElementById('player');
-//   var length = player.duration
-//   var current_time = player.currentTime;
 
 //   // calculate total length of value
 //   var totalLength = calculateTotalValue(length)
@@ -67,12 +69,6 @@ let pauseMusic = function pausemusic() {
 //     document.getElementById('play-btn').className = "";
 //   }
 
-//   function seek(event) {
-//     var percent = event.offsetX / this.offsetWidth;
-//     player.currentTime = percent * player.duration;
-//     progressbar.value = percent / 100;
-//   }
-// };
 
 // function initPlayers(num) {
 //   // pass num in if there are multiple audio players e.g 'player' + i
