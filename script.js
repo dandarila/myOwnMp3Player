@@ -23,7 +23,7 @@ domVariables.pause.addEventListener('click', function(){
   pauseMusic();
  });
 
-
+// try to make an input that add values to this array - mongoDB ?
 let playlist = ['media/alligator3.mp3', 'media/applause.mp3', 'media/arc1.mp3', 'media/baboon_monkey.mp3', 'media/coyote1.mp3', 'media/falling.mp3', 'media/lioncub2.mp3', 'media/powerlines.mp3', 'media/sample.mp3', 'media/suicide.mp3', 'media/wolf8.mp3', 'media/woscream4.mp3', 'media/LeftwithaGun.mp3', 'media/Lilly.mp3'];
 let currentPosition = 0;
 
