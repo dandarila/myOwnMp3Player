@@ -2,7 +2,9 @@ body{
   background-color: aqua;
 }
 
+
 #player-wrapper {
+  display: inline-block;
   position: relative;
   width: 400px;
   height: 300px;
@@ -10,7 +12,7 @@ body{
   border-color: red;
 }
 #play-btn {
-  position: absolute;
+  /* position: absolute; */
   background-image: url('images/play.png');
   background-size: cover;
   width: 50px;
@@ -26,14 +28,15 @@ body{
   margin: 2rem 0 2rem 2rem;
   
 }
-#mute {
-  position: absolute;
-  background-image: url('images/mute.png');
+/* #myCheck {
+  /* position: absolute; */
+  /* background-image: url('images/mute.jpg'); */
+  
   background-size: cover;
   width: 50px;
   height: 50px;
   margin: 2rem 0rem 2rem 0rem;
-}
+} */
 
 div #songTitle {
  
