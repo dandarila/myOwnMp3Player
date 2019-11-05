@@ -1,0 +1,51 @@
+.player {
+  position: relative;
+  background-color: black;  
+  width: 150px;
+  height: 35px;
+  border-style: solid;
+}
+
+#play-btn {
+  position: absolute;
+  background-image: url('images/play.jpg');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  z-index: 2;
+ }
+
+#pause-btn {
+  position: absolute;
+  background-image: url('images/pause.jpg');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  z-index: 1;
+  
+  
+}
+#mute-btn {
+  position: absolute;
+  left:35px;
+  background-image: url('images/mute.jpg');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  z-index: 2;
+ 
+}
+
+#unmute-btn {
+   position: absolute;
+   left:35px;
+   background-image: url('images/unmute.jpg');
+   background-size: cover;
+   width: 30px;
+   height: 30px;
+   z-index: 1;
+  
+ }
