@@ -113,3 +113,7 @@
   ul {
     list-style-type: none;
   }
+
+  #audio {
+    display: none;
+  }
