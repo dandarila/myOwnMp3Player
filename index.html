@@ -8,22 +8,32 @@
     <title>Document</title>
 </head>
 <body>
-    <div class = "leftSide">
-        <div class = "images">
-             <img id = "image" src="images/img2.jpg">
-        </div>
-        <div class = "player">
-            <div id ="play-btn"></div>
-            <div id ="pause-btn"></div>
-            <div id ="mute-btn"></div>
-            <div id ="unmute-btn"></div>
-            <audio id = "audio" controls></audio>
-        </div>
-        <div class = "songsInfos">
-              <p>Artist:</p>  <p id="songTitle">relu</p>
-        </div>
-    </div>    
+    <section class = "container">
+        <div class = "leftSide">
+            <div class = "images">
+                <img id = "image" src="images/img2.jpg">
+            </div>
+            <div class = "player">
+                <div id ="play-btn"></div>
+                <div id ="pause-btn"></div>
+                <div id ="mute-btn"></div>
+                <div id ="unmute-btn"></div>
+                <div id ="favorite-empty-heart"></div>
+                <div id ="favorite-full-heart"></div>
+                <audio id = "audio" controls></audio>
+            </div>
+            <div class = "songsInfos">
+                <p>Artist:</p>  <p id="songTitle"></p>
+            </div>
+        </div>    
 
+        <div class = "favorites-list">
+            <p><b>Saved songs: </b></p>
+            <ul id = "savedSongs">   
+                <li></li> 
+            </ul>
+        </div>
+    </section>
 <script src="script.js"></script>
 </body>
 </html>

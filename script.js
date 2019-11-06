@@ -2,14 +2,17 @@ let buttons = {
      play : document.getElementById('play-btn'), 
      pause: document.getElementById('pause-btn'), 
      mute : document.getElementById('mute-btn'), 
-     unmute : document.getElementById('unmute-btn')
+     unmute : document.getElementById('unmute-btn'), 
+     addToFav: document.getElementById('favorite-empty-heart'), 
+     removeFromFav: document.getElementById('favorite-full-heart')
 };
 
 audio.style.display = "none";
 let domVariables = {
    image : document.getElementById('image'), 
    audio : document.getElementById('audio'),
-   songTitle : document.getElementById('songTitle')
+   songTitle : document.getElementById('songTitle'), 
+   savedSongs : document.getElementById('savedSongs')
 }
 
 let playlist = ['media/alligator3.mp3', 'media/applause.mp3', 'media/arc1.mp3', 'media/baboon_monkey.mp3', 'media/coyote1.mp3', 'media/falling.mp3', 'media/lioncub2.mp3', 'media/powerlines.mp3', 'media/sample.mp3', 'media/suicide.mp3', 'media/wolf8.mp3', 'media/woscream4.mp3', 'media/LeftwithaGun.mp3', 'media/Lilly.mp3'];
@@ -36,6 +39,8 @@ buttons.play.addEventListener('click', function(){
 //Next song 
   domVariables.audio.onended = function() {
     console.log("The audio has ended");
+    buttons.addToFav.style.zIndex = 2;
+    buttons.removeFromFav.style.zIndex = 1;
     currentPosition = currentPosition + 1
     domVariables.audio.setAttribute('src', `${playlist[currentPosition]}`);
     songTitle.innerHTML = (`${playlist[currentPosition]}`).slice (6, -4);
@@ -72,6 +77,26 @@ buttons.unmute.addEventListener('click', function() {
 });
 
 
+// add/remove to Fav 
+buttons.addToFav.addEventListener('click', function() {
+  buttons.addToFav.style.zIndex = 1;
+  buttons.removeFromFav.style.zIndex = 2; 
+  addToMyList();
+ });
+
+buttons.removeFromFav.addEventListener('click', function() {
+  buttons.addToFav.style.zIndex = 2;
+  buttons.removeFromFav.style.zIndex = 1; 
+});
+
+
+function addToMyList() {
+  let songToBeAdded = (`${playlist[currentPosition]}`).slice (6, -4)
+  let ul = domVariables.savedSongs;
+  let li = document.createElement("li");
+  li.appendChild(document.createTextNode(`${songToBeAdded}`));
+  ul.appendChild(li);
+}
 
 
 
@@ -80,3 +105,7 @@ setInterval(function() {
     currPositionImag += 1;
     domVariables.image.setAttribute('src', `${images[currPositionImag]}`);
     }, 7000);
+
+
+
+    //const loggedStatus = window.localStorage.getItem("authToken");
