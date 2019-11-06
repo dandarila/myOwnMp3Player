@@ -1,3 +1,7 @@
+audio.style.display = "none";
+
+//Variables 
+
 let buttons = {
      play : document.getElementById('play-btn'), 
      pause: document.getElementById('pause-btn'), 
@@ -7,7 +11,7 @@ let buttons = {
      removeFromFav: document.getElementById('favorite-full-heart')
 };
 
-audio.style.display = "none";
+
 let domVariables = {
    image : document.getElementById('image'), 
    audio : document.getElementById('audio'),
@@ -89,6 +93,7 @@ buttons.removeFromFav.addEventListener('click', function() {
   buttons.removeFromFav.style.zIndex = 1; 
 });
 
+let likes = [];
 
 function addToMyList() {
   let songToBeAdded = (`${playlist[currentPosition]}`).slice (6, -4)
@@ -96,7 +101,11 @@ function addToMyList() {
   let li = document.createElement("li");
   li.appendChild(document.createTextNode(`${songToBeAdded}`));
   ul.appendChild(li);
-}
+
+  //add to local storage 
+  likes.push(songToBeAdded);
+  localStorage.setItem('Favorite Songs', likes);
+ }
 
 
 
@@ -108,4 +117,19 @@ setInterval(function() {
 
 
 
+
+
+    document.addEventListener("DOMContentLoaded", retrieveWebStorage());
+
+    function retrieveWebStorage() {
+    let existentLikes = localStorage.getItem('Favorite Songs').split(",");
+    console.log(existentLikes)
+    
+    for (let i = 0; i < existentLikes.length; i++ ){
+      let ul = domVariables.savedSongs;
+      let li = document.createElement("li");
+      li.appendChild(document.createTextNode(`${existentLikes[i]}`));
+      ul.appendChild(li);
+      }
+    }
     //const loggedStatus = window.localStorage.getItem("authToken");
