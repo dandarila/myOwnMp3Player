@@ -134,7 +134,11 @@ function retrieveWebStorage() {
     for (let i = 0; i < existentLikes.length; i++ ) {
         let ul = domVariables.savedSongs;
         let li = document.createElement("li");
+        li.className = "hoverable";
         li.appendChild(document.createTextNode(`${existentLikes[i]}`));
         ul.appendChild(li);
     }
 };
+
+
+
